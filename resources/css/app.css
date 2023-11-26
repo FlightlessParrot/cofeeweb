@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+ 
+
+:root{
+    --sm: '640px';
+    --lg: '1024';
+}
+
+body, html, .top-menu {
+    font-family: var(--font-family) !important;
+    width: 100vw;
+    overflow-x:clip
+}
+.top-menu a::after{
+    content: '';
+    background: url(/storage/general/ladybug_320_281.webp);
+    background-size: 20px 20px;
+    width:20px;
+    height: 20px;
+    display: inline-block;
+    transition: all 400ms;
+    visibility: hidden;
+    position: relative;
+    z-index: 60;
+    right: 20px
+}
+.top-menu a:hover::after{
+    visibility: visible;
+    transition: all 400ms;
+}
+.p-dock{
+    position: fixed;
+}

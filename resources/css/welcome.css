@@ -1,0 +1,48 @@
+@font-face {
+    font-family: child-font;
+    src: url(/storage/general/ChildWriting-Regular.ttf);
+}
+#story, #welcome{
+    font-family: child-font ;
+}
+.main-bg {
+    background-image: url(/storage/general/room_640_400.webp);
+    background-size: cover;
+
+    @media screen and (min-width: var(--sm)) {
+        background-image: url(/storage/general/room_1024_676.webp);
+    }
+
+    @media screen and (min-width: var(--lg)) {
+        background-image: url(/storage/general/room_1920_1090.webp);
+    }
+}
+
+.container{
+    perspective: 1000px;
+    
+}
+.pages{
+    position: relative;
+    top: 0px;
+}
+.first-page, .second-page{
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    
+}
+.first-page{
+    top: 0px;
+    position: relative;
+}
+.second-page{
+    transform: rotateY(-180deg);
+    top: 0px;
+    position: absolute;
+}
+.container:hover .pages {
+    transform: rotateY(-180deg);
+    transform-origin: center left;
+    transition: all 500ms;
+    transform-style: preserve-3d;
+} 
