@@ -5,7 +5,7 @@ use App\Http\Controllers\HappeningController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-
+use Illuminate\Support\Facades\Artisan;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,7 +33,13 @@ Route::get('/contact', function () {
 });
 Route::get('/offer/{type}/happening/{happening}', [HappeningController::class, 'show']);
 
-
+Route::get('/conf', function () {
+    Artisan::call('migrate');
+   Artisan::call('migrate:refresh');
+   Artisan::call('db:seed');
+   Artisan::call('storage:link');
+   return response('Udało się skonfigurować stronę');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
